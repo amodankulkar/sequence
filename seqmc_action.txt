@@ -1,0 +1,27 @@
+%let sysparm=runcas:LAXMPP+box:no+nworkers:5;
+%cassetup(session=sascas1, libname=sascas1);
+caslib _all_ assign;
+libname mycas cas;
+
+%include '\\sashq\root\u\sinamo\seqmc_performance\java_to_sas_eshop.txt';
+
+
+data sascas1.eshop;             /*5*/
+   set work.eshop;
+run;
+
+proc cas;                               /*6*/
+   loadactionset "sequence";
+   sequence.seqmc /
+      table="eshop",
+     minSupport=0.01,
+      casOut="seqout",
+      itemID="item",
+      eventID="eventid",
+      sequenceID="seqid",
+      k=10,
+      seed=12345,
+      nSamples=2000000,
+      nSamplesToVerify=100000;
+   run;
+quit;                 /* 27:33:11 -- 2608 */
