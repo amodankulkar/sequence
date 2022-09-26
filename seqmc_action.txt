@@ -3,7 +3,7 @@
 caslib _all_ assign;
 libname mycas cas;
 
-%include '\\sashq\root\u\sinamo\seqmc_performance\java_to_sas_eshop.txt';
+%include 'C:\sequence\java_to_sas_eshop.txt';
 
 
 data sascas1.eshop;             /*5*/
