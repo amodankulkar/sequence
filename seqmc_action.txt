@@ -14,7 +14,7 @@ proc cas;                               /*6*/
    loadactionset "sequence";
    sequence.seqmc /
       table="eshop",
-     minSupport=0.01,
+      minSupport=0.01,
       casOut="seqout",
       itemID="item",
       eventID="eventid",
