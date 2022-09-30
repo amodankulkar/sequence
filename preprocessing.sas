@@ -13,7 +13,8 @@ RUN;
 quit;
 
 data geneseq;
-set mylib.genes(rename=(name=genotype));
+set mylib.genes;
+genotype = _N_;
 len = length(sequence);
 seq1=find(sequence,"[");
 seq2=find(sequence,"]");
