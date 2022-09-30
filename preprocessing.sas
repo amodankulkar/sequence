@@ -56,3 +56,26 @@ do until(n00 > n2);
    n00 +1;
 end;
 run;
+
+proc sql;
+create table sequence as 
+SELECT genotype, CASE
+    WHEN base eq 'A' THEN 1
+    WHEN base eq 'C' THEN 2
+WHEN base eq 'G' THEN 3
+WHEN base eq 'K' THEN 4
+WHEN base eq 'N' THEN 5
+WHEN base eq 'R' THEN 6
+WHEN base eq 'S' THEN 7
+WHEN base eq 'T' THEN 8
+WHEN base eq 'W' THEN 9
+WHEN base eq 'Y' THEN 10
+    ELSE 0
+END AS basen, position 
+FROM mylib.seqgene;
+run;
+quit;
+
+data mylib.sequence;
+set sequence;
+run;
