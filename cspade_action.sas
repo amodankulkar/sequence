@@ -4,7 +4,7 @@ sequence.cspade / table="sequence",
 casout="seqout",  
 itemID="basen", 
 eventID="position", 
-sequenceID="genotype", 
+sequenceID="marker", 
 support = 0.4; 
 run;
 quit;
