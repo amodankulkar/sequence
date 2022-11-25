@@ -14,7 +14,7 @@ quit;
 
 data geneseq;
 set mylib.genes;
-genotype = _N_;
+marker = _N_;
 len = length(sequence);
 seq1=find(sequence,"[");
 seq2=find(sequence,"]");
@@ -27,7 +27,7 @@ run;
 
 
 
-data mylib.seqgene (keep= genotype position base sequence);
+data mylib.seqgene (keep= marker position base sequence);
 set geneseq;
 n1= length(sub1);
 n2= length(sub2);
@@ -60,7 +60,7 @@ run;
 
 proc sql;
 create table sequence as 
-SELECT genotype, CASE
+SELECT marker, CASE
     WHEN base eq 'A' THEN 1
     WHEN base eq 'C' THEN 2
 WHEN base eq 'G' THEN 3
